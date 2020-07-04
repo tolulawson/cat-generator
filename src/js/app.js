@@ -6,6 +6,8 @@ let catNames;
 function fetchImage() {
   $('#image-1').addClass('hidden').remove();
   $('#image-2').addClass('hidden').remove();
+  $('#name-1').text('');
+  $('#name-2').text('');
   $('.loading-text').removeClass('hidden');
   $.ajax({
     url,
@@ -28,10 +30,12 @@ function fetchImage() {
       $('#image-2').on('load', () => {
         $('#image-2').removeClass('hidden');
         $('.loading-text').addClass('hidden');
+        setNames('#name-2');
       });
       $('#image-1').on('load', () => {
         $('#image-1').removeClass('hidden');
         $('.loading-text').addClass('hidden');
+        setNames('#name-1');
       });
 
     });
@@ -47,17 +51,15 @@ function fetchNames() {
   })
     .done((data) => {
       catNames = data.map((item) => item.name);
-      setNames();
     });
 }
 
-function setNames() {
+function setNames(id) {
   function catName() {
     return catNames[Math.floor(Math.random() * catNames.length) + 1];
   }
 
-  $('#name-1').text(catName());
-  $('#name-2').text(catName());
+  $(id).text(catName());
 }
 
 function incrementCount() {
@@ -66,11 +68,11 @@ function incrementCount() {
 }
 
 $(() => {
-  fetchImage();
   fetchNames();
+  fetchImage();
 });
 
 $('#fetch-button').click(() => {
   fetchImage();
-  incrementCount();setNames();
+  incrementCount();
 });

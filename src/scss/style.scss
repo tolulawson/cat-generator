@@ -41,7 +41,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-    max-width: 500px;
+    max-width: 850px;
     width: 100%;
 
     .click-counter {
@@ -57,26 +57,52 @@ body {
 
     .image {
       width: 100%;
-      min-height: 400px;
+      height: auto;
+      overflow: hidden;
       position: relative;
       margin-bottom: 30px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       transform: scale(1);
       transition: transform 0.2s ease-in;
+      flex-wrap: wrap;
+
 
       .loading-text {
         text-align: center;
         color: #6c757d;
         position: absolute;
+        top: 50%;
         width: 100%;
       }
 
-      img {
-        width: 100%;
-        height: auto;
+      .image-1, .image-2 {
+        width: 98%;
+        height: 450px;
+        min-width: 250px;
+        max-width: 400px;
+        margin: 20px auto;
+        overflow: hidden;
+        position: relative;
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+
+        }
       }
+    }
+    .button {
+      margin-bottom: 30px;
     }
   }
 }

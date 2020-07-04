@@ -35,6 +35,7 @@ body {
     align-items: center;
     margin-top: 2rem;
     max-width: 500px;
+    max-width: 850px;
     width: 100%; }
     body .container .click-counter {
       font-size: 2rem;
@@ -45,22 +46,40 @@ body {
         font-weight: 700; }
     body .container .image {
       width: 100%;
-      min-height: 400px;
+      height: auto;
+      overflow: hidden;
       position: relative;
       margin-bottom: 30px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       transform: scale(1);
-      transition: transform 0.2s ease-in; }
+      transition: transform 0.2s ease-in;
+      flex-wrap: wrap; }
       body .container .image .loading-text {
         text-align: center;
         color: #6c757d;
         position: absolute;
+        top: 50%;
         width: 100%; }
-      body .container .image img {
-        width: 100%;
-        height: auto; }
+      body .container .image .image-1, body .container .image .image-2 {
+        width: 98%;
+        height: 450px;
+        min-width: 250px;
+        max-width: 400px;
+        margin: 20px auto;
+        overflow: hidden;
+        position: relative; }
+        body .container .image .image-1 h3, body .container .image .image-2 h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          text-align: center; }
+        body .container .image .image-1 img, body .container .image .image-2 img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%; }
+    body .container .button {
+      margin-bottom: 30px; }
 
 .hidden {
   transform: scale(0);

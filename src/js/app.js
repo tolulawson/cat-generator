@@ -2,12 +2,12 @@ const url = 'https://api.thecatapi.com/v1/images/search';
 const breedsUrl = 'https://api.thecatapi.com/v1/breeds';
 let count = 0;
 let catNames;
+let imageLinks = [];
 
 function fetchImage() {
-  $('#image-1').addClass('hidden').remove();
-  $('#image-2').addClass('hidden').remove();
+  $('.cat-list').empty();
+  $('.image-1 > img').remove();
   $('#name-1').text('');
-  $('#name-2').text('');
   $('.loading-text').removeClass('hidden');
   $.ajax({
     url,
@@ -16,30 +16,37 @@ function fetchImage() {
       'x-api-key': '8b43e25f-85d5-4540-b319-6cc6a7b481b8',
     },
     data: {
-      limit: 2,
+      limit: 5,
     }
 
   })
     .done((data) => {
-      const newImage1 = $('<img id="image-1" class="hidden">').attr('src', data[0].url);
-      const newImage2 = $('<img id="image-2" class="hidden">').attr('src', data[1].url);
-
-      newImage1.appendTo('.image-1');
-      newImage2.appendTo('.image-2');
-
-      $('#image-2').on('load', () => {
-        $('#image-2').removeClass('hidden');
-        $('.loading-text').addClass('hidden');
-        setNames('#name-2');
-      });
-      $('#image-1').on('load', () => {
-        $('#image-1').removeClass('hidden');
-        $('.loading-text').addClass('hidden');
-        setNames('#name-1');
+      data.forEach((item) => {
+        $(`<div class="cat-item">
+          <img src="${item.url}" alt="">
+        </div>`).appendTo('.cat-list');
+        imageLinks.push(item.url);
       });
 
+      $('.cat-item > img').click(function() {
+        selectImage(this);
+      });
+
+      $('.cat-item > img')[0].click();
+      $('.loading-text').addClass('hidden');
     });
 }
+
+function selectImage(target) {
+  $('.image img').remove();
+  $('#name-1').text(catNames[imageLinks.indexOf(target.src)]);
+  $('.image-1').append($(target).clone());
+
+  $('.cat-item').removeClass('selected');
+  $(target).closest('.cat-item').addClass('selected');
+}
+
+
 
 function fetchNames() {
   $.ajax({

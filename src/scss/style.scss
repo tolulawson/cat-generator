@@ -45,9 +45,8 @@ body {
     width: 100%;
 
     .click-counter {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #6c757d;
-      margin-bottom: 30px;
       text-align: center;
 
       .count {
@@ -60,7 +59,6 @@ body {
       height: auto;
       overflow: hidden;
       position: relative;
-      margin-bottom: 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -78,13 +76,14 @@ body {
       }
 
       .image-1, .image-2 {
-        width: 98%;
-        height: 450px;
+        width: 100%;
+        min-height: 450px;
         min-width: 250px;
         max-width: 400px;
         margin: 20px auto;
         overflow: hidden;
         position: relative;
+        // border: 1px solid red;
 
         h3 {
             font-size: 1.5rem;
@@ -95,12 +94,50 @@ body {
 
         img {
           object-fit: cover;
-          height: 100%;
+          height: 400px;
           width: 100%;
+          border-radius: 4px;
 
         }
       }
     }
+
+    .cat-list {
+      width: 100%;
+      max-width: 450px;
+      overflow-x: scroll;
+      height: 80px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+
+      .cat-item {
+        min-width: 70px;
+        position: relative;
+        width: 20%;
+
+        &.selected {
+
+          img {
+              border: 3px solid red;
+          }
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 3px;
+        }
+      }
+
+      .cat-item:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+
     .button {
       margin-bottom: 30px;
     }

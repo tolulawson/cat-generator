@@ -37,9 +37,8 @@ body {
     max-width: 850px;
     width: 100%; }
     body .container .click-counter {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #6c757d;
-      margin-bottom: 30px;
       text-align: center; }
       body .container .click-counter .count {
         font-weight: 700; }
@@ -48,7 +47,6 @@ body {
       height: auto;
       overflow: hidden;
       position: relative;
-      margin-bottom: 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -62,8 +60,8 @@ body {
         top: 50%;
         width: 100%; }
       body .container .image .image-1, body .container .image .image-2 {
-        width: 98%;
-        height: 450px;
+        width: 100%;
+        min-height: 450px;
         min-width: 250px;
         max-width: 400px;
         margin: 20px auto;
@@ -75,8 +73,31 @@ body {
           text-align: center; }
         body .container .image .image-1 img, body .container .image .image-2 img {
           object-fit: cover;
+          height: 400px;
+          width: 100%;
+          border-radius: 4px; }
+    body .container .cat-list {
+      width: 100%;
+      max-width: 450px;
+      overflow-x: scroll;
+      height: 80px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 20px; }
+      body .container .cat-list .cat-item {
+        min-width: 70px;
+        position: relative;
+        width: 20%; }
+        body .container .cat-list .cat-item.selected img {
+          border: 3px solid red; }
+        body .container .cat-list .cat-item img {
           height: 100%;
-          width: 100%; }
+          width: 100%;
+          object-fit: cover;
+          border-radius: 3px; }
+      body .container .cat-list .cat-item:not(:last-child) {
+        margin-right: 5px; }
     body .container .button {
       margin-bottom: 30px; }
 

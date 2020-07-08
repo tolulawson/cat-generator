@@ -24,12 +24,12 @@
   </header>
   <main class="container">
     <div class="click-counter">
-      You have fetched <span class="count-text-info"></span><span class="count-descriptor"></span>
+      You have refreshed <span class="count-text-info text-info"></span><span class="count-descriptor"></span>
     </div>
     <div class="image">
       <div class="image-1">
         <h3 id="name-1"></h3>
-        <p class="loading-text hidden">Loading image...</p>
+        <p class="loading-text">Loading image...</p>
       </div>
     </div>
 
@@ -38,7 +38,43 @@
     </nav>
 
     <div class="button">
-      <button type="button" name="button" class="btn btn-lg btn-primary" id="fetch-button">Fetch new cats!</button>
+      <button type="button" name="button" class="btn btn-primary" id="fetch-button">Fetch new cats</button>
+      <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#adminModal">Admin</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title font-weight-bold" id="adminModalLabel">Customize selected cat</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="admin-form">
+              <div class="form-group">
+                <label for="rnew-cat-name" class="col-form-label">Cat name</label>
+                <input type="text" class="form-control" id="new-cat-name">
+              </div>
+              <div class="form-group">
+                <label for="cat-image-url" class="col-form-label">Image URL</label>
+                <input type="text" class="form-control" id="cat-image-url">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="refresh-count-check">
+                <label class="form-check-label" for="refresh-count-check">Reset refresh count</label>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" >Save changes</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
     </div>
   </main>
 

@@ -37,10 +37,10 @@ body {
     max-width: 850px;
     width: 100%; }
     body .container .click-counter {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #6c757d;
       text-align: center; }
-      body .container .click-counter .count {
+      body .container .click-counter .ount-text-info {
         font-weight: 700; }
     body .container .image {
       width: 100%;

@@ -81,6 +81,7 @@ $(() => {
 
     refreshImages() {
       $('.loading-text').removeClass('hidden');
+      mainImageView.mainImage.find('img').remove();
       Promise.all([model.fetchImages(), model.fetchNames()])
         .then(() => {
           model.selectedIndex = 0;

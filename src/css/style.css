@@ -39,7 +39,8 @@ body {
     body .container .click-counter {
       font-size: 1.3rem;
       color: #6c757d;
-      text-align: center; }
+      text-align: center;
+      display: none; }
       body .container .click-counter .ount-text-info {
         font-weight: 700; }
     body .container .image {

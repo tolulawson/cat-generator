@@ -159,9 +159,9 @@ $(() => {
         controller.increaseCount();
         controller.updateCounterText();
       });
-      this.imageItems = controller.getImagesLinks().map((link) =>
+      this.imageItems = controller.getImagesLinks().map((link, index) =>
         $(`<div class="cat-item">
-          <img src="${link}" alt="">
+          <img src="${link}" alt="" data-index="${index}">
         </div>`));
       catListView.render();
     },
@@ -172,7 +172,7 @@ $(() => {
         catListView.catList.append(imageItem);
       });
       function getSelectedImageIndex(target) {
-        return model.imageLinks.indexOf($(target).find('img').attr('src'));
+        return $(target).find('img').attr('data-index');
       }
 
       $('.cat-item').click(function () {

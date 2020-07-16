@@ -45,10 +45,14 @@ $(() => {
         })
           .done((data) => {
             model.catNames = data.map((item) => item.name);
-            model.nameOffset = Math.floor(Math.random() * model.catNames.length - 10);
+            model.setNameOffset();
             resolve();
           });
       });
+    },
+
+    setNameOffset() {
+      model.nameOffset = Math.floor(Math.random() * (model.catNames.length - 5)) + 1;
     },
 
     getImages() {
@@ -60,7 +64,7 @@ $(() => {
     },
 
     setSelectedIndex(index) {
-      this.selectedIndex = index;
+      this.selectedIndex = Number(index);
     },
 
     getSelectedIndex() {
@@ -82,6 +86,8 @@ $(() => {
     refreshImages() {
       $('.loading-text').removeClass('hidden');
       mainImageView.mainImage.find('img').remove();
+      mainImageView.imageName.text('');
+      catListView.catList.empty();
       Promise.all([model.fetchImages(), model.fetchNames()])
         .then(() => {
           model.selectedIndex = 0;
@@ -105,7 +111,7 @@ $(() => {
       $(catListView.catList.children()[model.getSelectedIndex()]).addClass('selected');
     },
 
-    setCatName() {
+    getCatName() {
       return model.getCatName(model.selectedIndex + model.nameOffset);
     },
 
@@ -134,7 +140,7 @@ $(() => {
     },
 
     updateCatName(newName) {
-      model.catNames[model.selectedIndex + model.nameOffset] = newName;
+      model.catNames[model.selectedIndex] = newName;
       mainImageView.render();
     },
 
@@ -172,12 +178,12 @@ $(() => {
         catListView.catList.append(imageItem);
       });
       function getSelectedImageIndex(target) {
-        return $(target).find('img').attr('data-index');
+        return Number($(target).find('img').attr('data-index'));
       }
 
       $('.cat-item').click(function () {
-        const target = getSelectedImageIndex(this);
-        controller.updateSelected(target);
+        const targetIndex = getSelectedImageIndex(this);
+        controller.updateSelected(targetIndex);
       });
 
       controller.updateSelector();
@@ -199,7 +205,7 @@ $(() => {
       $('.loading-text').addClass('hidden');
       this.mainImage.find('img').remove();
       this.mainImage.append(catListView.getSelectedImage());
-      this.imageName.text(controller.setCatName());
+      this.imageName.text(controller.getCatName());
     },
   };
 

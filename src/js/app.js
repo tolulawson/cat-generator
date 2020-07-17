@@ -1,3 +1,7 @@
+const $ = require('jquery');
+
+require('bootstrap');
+
 $(() => {
   const model = {
     init() {
@@ -24,7 +28,7 @@ $(() => {
           },
         })
           .done((data) => {
-            let temp = [];
+            const temp = [];
             data.forEach((item) => {
               temp.push(item.url);
             });
@@ -246,7 +250,7 @@ $(() => {
         adminForm[0].reset();
       });
     },
-  }
+  };
 
   controller.init();
 });

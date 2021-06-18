@@ -73,7 +73,7 @@ gulp.task('htmlmin', async function() {
   await promisifyStream(
     gulp.src('src/**/*.html')
       .pipe(htmlmin({ collapseWhitespace: true }))
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('./'))
   )
 })
 

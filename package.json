@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jasmine",
     "build": "gulp build",
-    "start": "gulp start"
+    "start": "gulp build"
   },
   "repository": {
     "type": "git",

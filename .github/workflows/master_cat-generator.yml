@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: cat-generator
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D6478CBEA1B4FCEA3121A7EAD90366B }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED5BD2288DC049DEA43D639AF1FDBB39 }}
         package: .
 

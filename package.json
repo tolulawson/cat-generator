@@ -4,7 +4,6 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "jasmine",
     "build": "gulp build",
     "start": "gulp build"
   },

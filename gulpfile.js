@@ -106,3 +106,4 @@ gulp.task('start', async function() {
 gulp.task('build', async function() {
   (gulp.series('sass', 'autoprefixer', 'cleancss', 'babel', 'uglify', 'htmlmin', 'image'))();
 });
+

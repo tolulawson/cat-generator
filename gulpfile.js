@@ -33,7 +33,7 @@ gulp.task('cleancss', async function() {
   await promisifyStream(
     gulp.src('src/css/*.css')
       .pipe(cleancss({compatibility: 'ie8'}))
-      .pipe(gulp.dest('dist/css'))
+      .pipe(gulp.dest('css'))
   )
 })
 
@@ -55,13 +55,13 @@ gulp.task('babel', async function() {
           }]
         ]
       }))
-      .pipe(gulp.dest('dist/js'))
+      .pipe(gulp.dest('js'))
   )
 })
 
 gulp.task('uglify', async function() {
   await promisifyStream(
-    gulp.src('dist/js/*.js', {base: './'})
+    gulp.src('js/*.js', {base: './'})
       // .pipe(sourcemaps.init())
       .pipe(uglify())
       // .pipe(sourcemaps.write('maps'))
@@ -81,7 +81,7 @@ gulp.task('image', async function () {
   await promisifyStream(
     gulp.src('src/img/*')
     .pipe(image())
-    .pipe(gulp.dest('dist/img'))
+    .pipe(gulp.dest('img'))
   )
 })
 
